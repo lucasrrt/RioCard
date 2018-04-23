@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 Cards
+    div
+        table  
+            thead
+                tr 
+                    th ID
+                    th CODE
+                    th USER_ID
+            tbody
+                each card in data
+                    tr
+                        td #{card.id}
+                        td #{card.code}
+                        td #{card.user_id}

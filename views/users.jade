@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 Users
+    div
+        table  
+            thead
+                tr 
+                    th ID
+                    th NAME
+                    th AGE
+            tbody
+                each user in data
+                    tr
+                        td #{user.id}
+                        td #{user.name}
+                        td #{user.age}

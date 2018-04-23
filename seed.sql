@@ -3,9 +3,17 @@ CREATE DATABASE riocard;
 
 \c riocard;
 
-CREATE TABLE cards (
+CREATE TABLE users (
     ID SERIAL PRIMARY KEY,
-    code VARCHAR
+    name VARCHAR,
+    age INTEGER
 );
 
-INSERT INTO cards (code) VALUES ('first');
+CREATE TABLE cards (
+    ID SERIAL PRIMARY KEY,
+    code VARCHAR,
+    user_id INTEGER
+);
+
+INSERT INTO users (name, age) VALUES ('Lucas', 23);
+INSERT INTO cards (code, user_id) VALUES ('first', 1);
