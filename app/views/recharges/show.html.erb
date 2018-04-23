@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @recharge.card_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @recharge.value %>
+</p>
+
+<%= link_to 'Edit', edit_recharge_path(@recharge) %> |
+<%= link_to 'Back', recharges_path %>
