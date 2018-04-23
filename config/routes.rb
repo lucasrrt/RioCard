@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :travels
+  resources :vehicles
   resources :recharges
   resources :cards
   resources :users

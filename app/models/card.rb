@@ -1,7 +1,8 @@
 class Card < ApplicationRecord
-	belongs_to :user
+	belongs_to :user, optional:true
 
 	has_many :recharges
+	has_many :travels
 
 	validate :user_existence
 
@@ -12,9 +13,11 @@ class Card < ApplicationRecord
 	end
 
 	def balance
-		recharges = Recharge.where(card_id: self.id)
+		recharges = self.recharges
+		travels = self.travels
 		balance = 0
-		recharges.each{|recharge| balance = balance + recharge.value}
+		recharges.each{ |recharge| balance = balance + recharge.value }
+		travels.each{ |travel| balance = balance - travel.vehicle.price }
 		return balance
 	end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423224113) do
+ActiveRecord::Schema.define(version: 20180423233130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180423224113) do
     t.index ["card_id"], name: "index_recharges_on_card_id", using: :btree
   end
 
+  create_table "travels", force: :cascade do |t|
+    t.integer  "vehicle_id"
+    t.integer  "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_travels_on_card_id", using: :btree
+    t.index ["vehicle_id"], name: "index_travels_on_vehicle_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.date     "birthdate"
@@ -38,6 +47,17 @@ ActiveRecord::Schema.define(version: 20180423224113) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "kind"
+    t.string   "line"
+    t.string   "description"
+    t.money    "price",       scale: 2
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   add_foreign_key "cards", "users"
   add_foreign_key "recharges", "cards"
+  add_foreign_key "travels", "cards"
+  add_foreign_key "travels", "vehicles"
 end
