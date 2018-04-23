@@ -28,7 +28,7 @@ function getAllCards(req, res, next) {
     db.any('select * from cards')
         .then(function (data){
             res.status(200)
-                .render('cards', {data: data});
+                .render('card_index', {data: data});
         })
         .catch(function(err){
             return next(err);
@@ -52,8 +52,8 @@ function getSingleCard(req,res,next){
 }
 
 function createCard(req,res,next) {
-    db.none('insert into cards(code)' +
-                'values(${code})', req.body)
+    db.none('insert into cards(code, user_id)' +
+                'values($1, $2)', [req.body.code, req.body.user_id || null])
         .then(function(){
             res.status(200)
                 .json({
@@ -68,18 +68,21 @@ function createCard(req,res,next) {
 
 function updateCard(req,res,next) {
     var cardID = parseInt(req.params.id)
-    db.none('update cards set code=$1 where id=$2',
-        [req.body.code, cardID])
-        .then(function(){
-            res.status(200)
-                .json({
-                    status: 'success',
-                    message: 'updated card'
-                });
-        })
-        .catch(function(err) {
-            return next(err);
-        });
+    db.one('select * from users where user_id=$1', req.body.user_id)
+        .then(
+            db.none('update cards set user_id=$1 where id=$2',
+                [req.body.code, cardID])
+                .then(function(){
+                    res.status(200)
+                        .json({
+                            status: 'success',
+                            message: 'updated card'
+                        });
+                })
+                .catch(function(err) {
+                    return next(err);
+                })
+    )
 }
 
 function removeCard(req,res,next) {
@@ -101,7 +104,7 @@ function getAllUsers(req, res, next) {
     db.any('select * from users')
         .then(function (data){
             res.status(200)
-                .render('users', {data: data});
+                .render('user_index', {data: data});
         })
         .catch(function(err){
             return next(err);

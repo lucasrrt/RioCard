@@ -9,9 +9,12 @@ block content
                     th ID
                     th CODE
                     th USER_ID
+
             tbody
                 each card in data
                     tr
                         td #{card.id}
                         td #{card.code}
                         td #{card.user_id}
+                        td: button(href='#') Assign to user
+    button(href='card/create') NEW
