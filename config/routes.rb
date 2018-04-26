@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+	get 'simulator/index'
+	get 'simulator/travel'
+	get 'simulator/', to: 'simulator#index'
+
 	root 'welcome#index'
 
 	get 'welcome/index'
