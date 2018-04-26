@@ -10,5 +10,10 @@
   <%= @user.birthdate %>
 </p>
 
+<p>
+  <strong>FingerPrint:</strong>
+  <%= @user.fingerprint %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
