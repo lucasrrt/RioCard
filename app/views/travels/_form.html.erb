@@ -41,7 +41,7 @@
 				<td><%= card.code %></td>
 				<td><%= card.user.name if card.user %></td>
 				<td><%= card.balance %></td>
-        <!-- TODO sobrescrever new recharge para já colocar o cartão a ser recarregado -->
+        <!-- TODO Overwrite new_recharge to accept a card as argument -->
         <%= link_to  "Efetuar recarga", new_recharge_path(card) %>
 			</tr>
 		<% end %>
