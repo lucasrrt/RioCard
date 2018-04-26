@@ -14,11 +14,15 @@ class TravelsController < ApplicationController
 
 	# GET /travels/new
 	def new
+		@cards = Card.all
+		@vehicles = Vehicle.all
 		@travel = Travel.new
 	end
 
 	# GET /travels/1/edit
 	def edit
+		@cards = Card.all
+		@vehicles = Vehicle.all
 	end
 
 	# POST /travels
