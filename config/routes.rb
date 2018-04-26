@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
 	get 'welcome/index'
 
+	get 'recharges/new/:card_id', to: 'recharges#new', as: 'card'
+
 	resources :travels
 	resources :vehicles
 	resources :recharges

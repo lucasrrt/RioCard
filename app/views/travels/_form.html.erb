@@ -42,7 +42,7 @@
 				<td><%= card.user.name if card.user %></td>
 				<td><%= card.balance %></td>
         <!-- TODO Overwrite new_recharge to accept a card as argument -->
-        <td><%= link_to  "Efetuar recarga", new_recharge_path(card) %></td>
+        <td><%= link_to  "Efetuar recarga", {controller: :recharges, action: :new, card_id: card.id} %></td>
 				<td><%= link_to  "Editar Cartão", edit_card_path(card) %></td>
 			</tr>
 		<% end %>
