@@ -4,7 +4,7 @@ class TravelsController < ApplicationController
 	# GET /travels
 	# GET /travels.json
 	def index
-		@travels = Travel.all
+		@travels = Travel.all.order(:created_at)
 	end
 
 	# GET /travels/1
@@ -14,15 +14,15 @@ class TravelsController < ApplicationController
 
 	# GET /travels/new
 	def new
-		@cards = Card.all
-		@vehicles = Vehicle.all
+		@cards = Card.all.order(:created_at)
+		@vehicles = Vehicle.all.order(:created_at)
 		@travel = Travel.new
 	end
 
 	# GET /travels/1/edit
 	def edit
-		@cards = Card.all
-		@vehicles = Vehicle.all
+		@cards = Card.all.order(:created_at)
+		@vehicles = Vehicle.all.order(:created_at)
 	end
 
 	# POST /travels
@@ -32,6 +32,7 @@ class TravelsController < ApplicationController
 		price = @travel.vehicle.price
 		balance = @travel.card.balance
 		user = @travel.card.user if @travel.card.user
+		#TODO lógica do: se for a mesma condução, o usuário tem que esperar mais de uma hora para valer o benefício
 		if params[:fingerprint] and params[:fingerprint] == user.fingerprint
 			if user.hasFreePass? or @travel.second_valid_travel?
 				@travel.condition = "freePass"

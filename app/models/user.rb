@@ -6,8 +6,12 @@ class User < ApplicationRecord
 		return now.year - birthdate.year - ((now.month > birthdate.month || (now.month == birthdate.month and now.day >= birthdate.day))? 0:1)
 	end
 
+	def elderly?
+		return age >= 65
+	end
+
 	def hasFreePass?
 		#TODO complicated conditions for students
-		return (age > 65 or isStudent)
+		return (elderly? or is_student)
 	end
 end

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180516013113) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "fingerprint"
-    t.boolean  "isStudent"
+    t.boolean  "is_student"
   end
 
   create_table "vehicles", force: :cascade do |t|

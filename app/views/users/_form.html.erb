@@ -1,32 +1,37 @@
 <%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+	<% if user.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+				<% user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
 
-  <div class="field">
-    <%= f.label :birthdate %>
-	<%= f.date_select :birthdate, {start_year: 1900, end_year: Time.now.year} %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :fingerprint %>
-    <%= f.text_field :fingerprint %>
-  </div>
+	<div class="field">
+		<%= f.label :birthdate %>
+		<%= f.date_select :birthdate, {start_year: 1900, end_year: Time.now.year} %>
+	</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :fingerprint %>
+		<%= f.text_field :fingerprint %>
+	</div>
+
+	<div class="field">
+		<%= f.label "is_student" %>
+		<%= f.check_box :is_student %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

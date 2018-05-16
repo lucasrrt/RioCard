@@ -7,12 +7,22 @@
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @user.birthdate %>
+  <%= @user.birthdate %> (<%= @user.age%>)
 </p>
 
 <p>
   <strong>FingerPrint:</strong>
   <%= @user.fingerprint %>
+</p>
+
+<p>
+  <strong>Estudante?</strong>
+  <%= (@user.is_student)?"Sim":"Não" %>
+</p>
+
+<p>
+  <strong>Idoso?</strong>
+  <%= (@user.elderly?)?"Sim":"Não" %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+	  @cards = Card.all.order(:created_at)
   end
 
   # GET /cards/1
@@ -20,6 +20,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
+    @users = User.all
   end
 
   # POST /cards

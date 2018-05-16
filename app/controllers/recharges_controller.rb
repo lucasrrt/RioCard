@@ -4,7 +4,7 @@ class RechargesController < ApplicationController
 	# GET /recharges
 	# GET /recharges.json
 	def index
-		@recharges = Recharge.all
+		@recharges = Recharge.all.order(:created_at)
 	end
 
 	# GET /recharges/1
