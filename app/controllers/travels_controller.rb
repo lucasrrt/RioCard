@@ -28,6 +28,7 @@ class TravelsController < ApplicationController
 	# POST /travels
 	# POST /travels.json
 	def create
+		#TODO fingerprint logic
 		@travel = Travel.new(travel_params)
 		price = @travel.vehicle.price
 		balance = @travel.card.balance
