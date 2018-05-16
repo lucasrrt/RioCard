@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426020339) do
+ActiveRecord::Schema.define(version: 20180516013113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180426020339) do
     t.integer  "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "condition"
     t.index ["card_id"], name: "index_travels_on_card_id", using: :btree
     t.index ["vehicle_id"], name: "index_travels_on_vehicle_id", using: :btree
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180426020339) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "fingerprint"
+    t.boolean  "isStudent"
   end
 
   create_table "vehicles", force: :cascade do |t|

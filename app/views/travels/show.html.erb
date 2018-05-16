@@ -10,5 +10,10 @@
   <%= @travel.card.id %> (<%= @travel.card.user.name %>)
 </p>
 
+<p>
+  <strong>Condition:</strong>
+  <%= @travel.condition %>
+</p>
+
 <%= link_to 'Edit', edit_travel_path(@travel) %> |
 <%= link_to 'Back', new_travel_path %>

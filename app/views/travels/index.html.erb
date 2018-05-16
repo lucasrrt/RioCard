@@ -8,6 +8,7 @@
 			<th>Id</th>
 			<th>Vehicle</th>
 			<th>Card</th>
+			<th>Condition</th>
 			<th colspan="3"></th>
 		</tr>
 	</thead>
@@ -18,6 +19,7 @@
 				<td><%= travel.id %></td>
 				<td><%= travel.vehicle.id %></td>
 				<td><%= travel.card.id %></td>
+				<td><%= travel.condition %></td>
 				<td><%= link_to 'Show', travel %></td>
 				<td><%= link_to 'Edit', edit_travel_path(travel) %></td>
 				<td><%= link_to 'Destroy', travel, method: :delete, data: { confirm: 'Are you sure?' } %></td>

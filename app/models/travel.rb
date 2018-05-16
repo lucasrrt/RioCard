@@ -11,4 +11,13 @@ class Travel < ApplicationRecord
 	def card_existence
 		return false if Card.find_by_id(self.card_id).nil?
 	end
+
+	def second_valid_travel?
+		past_travel = Travel.where(card_id: card_id).order(:created_at).last
+		if past_travel
+			return ((past_travel.condition == "valid") and (Time.now.utc - past_travel.created_at < 2.5*60*60))
+		else
+			return false
+		end
+	end
 end

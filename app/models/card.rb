@@ -17,7 +17,7 @@ class Card < ApplicationRecord
 		travels = self.travels
 		balance = 0
 		recharges.each{ |recharge| balance = balance + recharge.value }
-		travels.each{ |travel| balance = balance - travel.vehicle.price }
+		travels.each{ |travel| balance = balance - travel.vehicle.price if travel.condition != "freePass"}
 		return balance
 	end
 end

@@ -28,13 +28,20 @@ class TravelsController < ApplicationController
 	# POST /travels
 	# POST /travels.json
 	def create
-		#TODO fingerprint logic
 		@travel = Travel.new(travel_params)
 		price = @travel.vehicle.price
 		balance = @travel.card.balance
+		user = @travel.card.user if @travel.card.user
+		if params[:fingerprint] and params[:fingerprint] == user.fingerprint
+			if user.hasFreePass? or @travel.second_valid_travel?
+				@travel.condition = "freePass"
+			else
+				@travel.condition = "valid"
+			end
+		end
 
 		respond_to do |format|
-			if balance > price
+			if balance > price or @travel.condition == "freePass"
 				if @travel.save
 					format.html { redirect_to @travel, notice: 'Travel was successfully created.' }
 					format.json { render :show, status: :created, location: @travel }
