@@ -6,6 +6,11 @@ class Card < ApplicationRecord
 
 	validate :user_existence
 
+	before_destroy do |card|
+		card.travels.destroy_all
+		card.recharges.destroy_all
+	end
+
 	def user_existence
 		if self.user_id
 			return false if User.find_by_id(self.user_id).nil?
