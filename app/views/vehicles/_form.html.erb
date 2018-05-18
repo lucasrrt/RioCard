@@ -1,37 +1,43 @@
 <%= form_for(vehicle) do |f| %>
-  <% if vehicle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+	<% if vehicle.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
 
-      <ul>
-      <% vehicle.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+				<% vehicle.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :kind %>
-    <%= f.text_field :kind %>
-  </div>
+	<div class="field">
+		<h4>Tipo de condução</h4>
+		<div style="display:flex">
+			<%= f.radio_button :kind, :bus %>
+			<%= f.label :kind_bus, "ônibus" %>
+		</div> <br>
+		<div style="display:flex">
+			<%= f.radio_button :kind, :subway %>
+			<%= f.label :kind_subway, "metrô" %>
+		</div> <br>
+		<div style="display:flex">
+			<%= f.radio_button :kind, :train %>
+			<%= f.label :kind_train, "trem" %>
+		</div>
+	</div>
 
-  <div class="field">
-    <%= f.label :line %>
-    <%= f.text_field :line %>
-  </div>
+	<div class="field">
+		<h4>Linha</h4>
+		<%= f.text_field :line %>
+	</div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+	<div class="field">
+		<h4>Preço</h4>
+		<%= f.text_field :price %>
+	</div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
