@@ -12,13 +12,13 @@
 	<% end %>
 
 	<div class="field">
-		<%= f.label :code %>
+		<h4>Código</h4>
 		<%= f.text_field :code %>
 	</div>
 
 	<div class="field">
-		<%= f.label :user_id %>
-		<%= f.text_field :user_id %>
+		<h4>Selecione um usuário abaixo</h4>
+		<%= f.text_field :user_id, readonly: true %>
 	</div>
 
 	<div class="actions">
@@ -31,10 +31,10 @@
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Name</th>
-			<th>Age</th>
-			<th>Birthdate</th>
-			<th>FingerPrint</th>
+			<th>Nome</th>
+			<th>Idade</th>
+			<th>Data de Nascimento</th>
+			<th>Impressão Digital</th>
 			<th colspan="4"></th>
 		</tr>
 	</thead>

@@ -20,4 +20,8 @@ class Travel < ApplicationRecord
 			return false
 		end
 	end
+
+	def translated_condition
+		return condition=="freePass"?"Gratuita":(condition=="valid"?"Válida para segunda viagem":"Inválida para segunda viagem")
+	end
 end

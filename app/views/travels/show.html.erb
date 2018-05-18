@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Vehicle:</strong>
-  <%= @travel.vehicle.id %> (<%= @travel.vehicle.line %>)
+  <strong>Veículo:</strong>
+  <%= @travel.vehicle.id %> (<%= @travel.vehicle.translated_name %> <%= @travel.vehicle.line %>)
 </p>
 
 <p>
-  <strong>Card:</strong>
+  <strong>Cartão:</strong>
   <%= @travel.card.id %> (<%= @travel.card.user.name %>)
 </p>
 
 <p>
-  <strong>Condition:</strong>
-  <%= @travel.condition %>
+  <strong>Condição:</strong>
+  <%= @travel.translated_condition %>
 </p>
 
 <%= link_to 'Edit', edit_travel_path(@travel) %> |

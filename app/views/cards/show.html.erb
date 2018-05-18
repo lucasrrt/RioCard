@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Code:</strong>
+  <strong>Código:</strong>
   <%= @card.code %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @card.user_id %>
+  <strong>Usuário:</strong>
+  <%= @card.user_id %> (<%= @card.user.name if @card.user%>)
 </p>
 
 <%= link_to 'Editar', edit_card_path(@card) %> |
 <%= link_to 'Voltar para simulação', simulator_index_path %> |
+<%= link_to 'Voltar para viagens', new_travel_path %> |
 <%= link_to 'Voltar para os cartões', cards_path %>

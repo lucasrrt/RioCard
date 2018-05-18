@@ -16,6 +16,6 @@ class User < ApplicationRecord
 
 	def hasFreePass?
 		#TODO complicated conditions for students
-		return (elderly? or (is_student and Time.now.on_weekday))
+		return (elderly? or (is_student and Time.now.on_weekday?))
 	end
 end

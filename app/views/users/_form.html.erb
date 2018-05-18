@@ -12,22 +12,22 @@
 	<% end %>
 
 	<div class="field">
-		<%= f.label :name %>
+		<h4>Nome</h4>
 		<%= f.text_field :name %>
 	</div>
 
 	<div class="field">
-		<%= f.label :birthdate %>
+		<h4>Data de Nascimento</h4>
 		<%= f.date_select :birthdate, {start_year: 1900, end_year: Time.now.year} %>
 	</div>
 
 	<div class="field">
-		<%= f.label :fingerprint %>
+		<h4>Impressão Digital</h4>
 		<%= f.text_field :fingerprint %>
 	</div>
 
 	<div class="field">
-		<%= f.label "is_student" %>
+		<h4>Estudante?</h4>
 		<%= f.check_box :is_student %>
 	</div>
 

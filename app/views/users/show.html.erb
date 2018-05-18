@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Birthdate:</strong>
+  <strong>Data de Nascimento:</strong>
   <%= @user.birthdate %> (<%= @user.age%>)
 </p>
 
 <p>
-  <strong>FingerPrint:</strong>
+  <strong>Impressão Digital:</strong>
   <%= @user.fingerprint %>
 </p>
 
@@ -25,6 +25,6 @@
   <%= (@user.elderly?)?"Sim":"Não" %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back to users', users_path %> |
-<%= link_to 'Back to cards', new_card_path %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Usuários', users_path %> |
+<%= link_to 'Cartões', new_card_path %>

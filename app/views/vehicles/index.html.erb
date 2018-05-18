@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Vehicles</h1>
+<h1>Veículos</h1>
 
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Kind</th>
-			<th>Line</th>
-			<th>Description</th>
-			<th>Price</th>
+			<th>Tipo</th>
+			<th>Linha</th>
+			<th>Preço</th>
 			<th colspan="3"></th>
 		</tr>
 	</thead>
@@ -18,9 +17,8 @@
 		<% @vehicles.each do |vehicle| %>
 			<tr>
 				<td><%= vehicle.id %></td>
-				<td><%= vehicle.kind %></td>
+				<td><%= vehicle.translated_name %></td>
 				<td><%= vehicle.line %></td>
-				<td><%= vehicle.description %></td>
 				<td><%= vehicle.price %></td>
 				<td><%= link_to 'Show', vehicle %></td>
 				<td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
@@ -34,4 +32,5 @@
 
 <%= link_to 'Novo veículo', new_vehicle_path %> |
 <%= link_to 'Simulação', simulator_index_path %> |
+<%= link_to 'Viagens', new_travel_path %> |
 <%= link_to 'Home', welcome_index_path %>

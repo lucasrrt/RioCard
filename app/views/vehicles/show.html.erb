@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Kind:</strong>
-  <%= @vehicle.kind %>
+  <strong>Tipo:</strong>
+  <%= @vehicle.translated_name %>
 </p>
 
 <p>
-  <strong>Line:</strong>
+  <strong>Linha:</strong>
   <%= @vehicle.line %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @vehicle.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @vehicle.price %>
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Voltar para os veículos', vehicles_path %> |
 <%= link_to  "Simulação", new_travel_path %>
